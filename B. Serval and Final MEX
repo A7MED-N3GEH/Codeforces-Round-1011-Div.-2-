@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    int cnt_zero = 0, idx = -1;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == 0) {
+            cnt_zero++;
+            idx = i;
+        }
+    }
+    if (cnt_zero == 0) {
+        cout << "1\n1 " << n << "\n";
+    } else if (cnt_zero == 1) {
+        if (idx == 0) {
+            cout << "2\n1 2\n1 " << n - 1 << "\n";
+        } else if (idx == n - 1) {
+            cout << "2\n" << n - 1 << " " << n << "\n1 " << n - 1 << "\n";
+        } else {
+            cout << "2\n1 " << idx + 1 << "\n1 " << n - idx << "\n";
+        }
+    } else {
+        if (arr[0] == 0) {
+            if (arr[n - 1] == 0) {
+                cout << "3\n1 " << n - 2 << "\n2 3\n1 2\n";
+            } else {
+                cout << "2\n1 " << n - 1 << "\n1 2\n";
+            }
+        } else {
+            if (arr[n - 1] == 0) {
+                cout << "2\n2 " << n << "\n1 2\n";
+            } else {
+                cout << "2\n1 " << n - 1 << "\n1 2\n";
+            }
+        }
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
