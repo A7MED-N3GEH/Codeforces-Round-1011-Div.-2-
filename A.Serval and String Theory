@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+void files() {
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+}
+
+void solve()
+{
+    int n,k;cin>>n>>k;
+    string s;cin>>s;
+
+    string t = s;
+    reverse(t.begin() , t.end());
+    // 1
+    if(s<t){
+        cout<<"YES\n";
+        return;
+    }
+    set<char>st;
+    for(auto c:s)st.insert(c);
+    if(st.size() == 1 or k == 0)
+    {
+        cout<<"NO\n";
+        return;
+    }
+    cout<<"YES\n";
+
+}
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    // files();
+    int t;cin>>t;
+    while (t--)
+    {
+        solve();
+        /* code */
+    }
+    
+    return 0;
+}
